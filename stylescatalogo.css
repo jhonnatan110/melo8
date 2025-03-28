@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar-brand{
+    font-size: 2rem;
+    color: #00008B;
+}
+
+.navbar-brand:hover{
+    color: #00008B;
+}
+
+.nav-link{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #00008B;
+    text-transform: uppercase;
+}
+
+.nav-link:hover{
+    color: black;
+}
+
+.btn-outline-custom {
+    color: #00008B;
+    border: 2px solid #00008B;
+}
+
+.btn-outline-custom:hover {
+    background-color: #00008B;
+    color: white;
+}
+
+.main{
+    background: url(img/fondo3.png)no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: 50% 50%;
+    width: 100%;
+}
+
+.main h1{
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.main h4{
+    font-weight: 700;
+}
+
+.btn1{
+    height: 45px;
+    width: 65%;
+    border: none;
+    outline: none;
+    background-color: #00008B;
+    color: white;
+    font-weight: 700;
+    border-radius: 60px;
+}
+
+.btn1:hover{
+    background-color: #00008B;
+    transition: 0.5s;
+}
+
+h1{
+    font-weight: 700;
+}
+
+.card:hover{
+    box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+-webkit-box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+transition: 0.5s;
+}
+
+.card{
+    margin: 20px;
+padding: 20px;
+background: white;
+box-shadow: 0 0 10px #00008B;
+}
+
+.img-fluid{
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.carrito-boton{
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.contact{
+    background-color: #00008B;
+    color: white;
+}
+
+.btn2{
+    height: 45px;
+    width: 100px;
+    background: white;
+    margin-left: -10px;
+    border: 2px solid white;
+    font-weight: 600;
+}
+
+.contact input{
+    height: 45px;
+    width: 55%;
+    border: 2px solid white;
+    outline: none;
+    background: #00008B;
+    color: white;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.contact::placeholder{
+    color: white;
+}
+
+.contact p{
+    margin: 0;
+}
