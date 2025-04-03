@@ -1,0 +1,81 @@
+/* Estilos de la Factura */
+.factura-container {
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+    color: #00008B;
+}
+
+.table-primary {
+    background: #00008B !important;
+}
+
+/* Estilos de la barra de navegación */
+.navbar-brand {
+    font-family: Merriweather;
+    font-size: 2rem;
+    color: #00008B;
+}
+
+.navbar-brand:hover {
+    color: #00008B;
+}
+
+.nav-link {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #00008B;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+button.btn-outline-custom {
+    color: hwb(0 0% 100%);
+    border-color: #00008B;
+    background-color: rgb(255, 255, 255);
+}
+
+button.btn-outline-custom:hover {
+    background-color: #00008B;
+    color: white;
+}
+
+/* Estilo de la imagen en la factura */
+.factura-img {
+    max-width: 200px;
+    border-radius: 10px;
+}
+.contact{
+    background-color: #00008B;
+    color: white;
+}
+
+.btn2{
+    height: 45px;
+    width: 100px;
+    background: white;
+    margin-left: -10px;
+    border: 2px solid white;
+    font-weight: 600;
+}
+
+.contact input{
+    height: 45px;
+    width: 55%;
+    border: 2px solid white;
+    outline: none;
+    background: #00008B;
+    color: white;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.contact::placeholder{
+    color: white;
+}
+
+.contact p{
+    margin: 0;
+}
