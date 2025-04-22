@@ -118,3 +118,277 @@ transition: 0.5s;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
+
+
+.login-section {
+    background-color: #f8f9fa;
+    min-height: 70vh; 
+    display: flex;
+    align-items: center;
+}
+
+.login-section .card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.login-section h2 {
+    color: #00008B;
+    font-weight: bold;
+}
+
+.login-section .form-label {
+    color: #00008B;
+    font-weight: 500;
+}
+
+.login-section .form-control {
+    border: 2px solid #00008B;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.login-section .form-control:focus {
+    border-color: #00008B;
+    box-shadow: 0 0 5px rgba(0, 0, 139, 0.3);
+}
+
+.login-section .btn-login {
+    background-color: #00008B;
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.login-section .btn-login:hover {
+    background-color: #000066;
+}
+
+.login-section a {
+    color: #00008B;
+    font-weight: 500;
+}
+
+.login-section a:hover {
+    color: #000066;
+    text-decoration: underline;
+}
+
+
+.contact {
+    background-color: #00008B;
+    color: white;
+}
+
+.btn2 {
+    height: 45px;
+    width: 100px;
+    background: white;
+    margin-left: -10px;
+    border: 2px solid white;
+    font-weight: 600;
+}
+
+.contact input {
+    height: 45px;
+    width: 55%;
+    border: 2px solid white;
+    outline: none;
+    background: #00008B;
+    color: white;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.register-section {
+    background-color: #f8f9fa; 
+    min-height: 70vh; 
+    display: flex;
+    align-items: center;
+}
+
+.register-section .card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.register-section h2 {
+    color: #00008B;
+    font-weight: bold;
+}
+
+.register-section h4 {
+    color: #00008B;
+    font-weight: 600;
+}
+
+.register-section .form-label {
+    color: #00008B;
+    font-weight: 500;
+}
+
+.register-section .form-control {
+    border: 2px solid #00008B;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.register-section .form-control:focus {
+    border-color: #00008B;
+    box-shadow: 0 0 5px rgba(0, 0, 139, 0.3);
+}
+
+.register-section .btn-register {
+    background-color: #00008B;
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.register-section .btn-register:hover {
+    background-color: #000066;
+}
+
+.success-section {
+    background-color: #f8f9fa;
+    min-height: 70vh; 
+    display: flex;
+    align-items: center;
+}
+
+.success-section .card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.success-section .check-circle {
+    background-color: #28a745; 
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.success-section h2 {
+    color: #00008B;
+    font-weight: bold;
+}
+
+.success-section p {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.success-section .btn-success {
+    background-color: #00008B;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.success-section .btn-success:hover {
+    background-color: #000066;
+}
+.forgot-password-section {
+    background-color: #f8f9fa;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.forgot-password-section .card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.forgot-password-section h2 {
+    color: #00008B;
+    font-weight: bold;
+}
+
+.forgot-password-section p {
+    color: #333;
+    font-size: 1rem;
+}
+
+.forgot-password-section .form-label {
+    color: #00008B;
+    font-weight: 500;
+}
+
+.forgot-password-section .form-control {
+    border: 2px solid #00008B;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.forgot-password-section .form-control:focus {
+    border-color: #00008B;
+    box-shadow: 0 0 5px rgba(0, 0, 139, 0.3);
+}
+
+.forgot-password-section .btn-forgot {
+    background-color: #00008B;
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: white; 
+}
+
+.forgot-password-section .btn-forgot:hover {
+    background-color: #000066;
+    color: white; 
+}
+
+.forgot-password-section a {
+    color: #00008B;
+    font-weight: 500;
+}
+
+.forgot-password-section a:hover {
+    color: #000066;
+    text-decoration: underline;
+}
+
+.email-sent-section {
+    background-color: #f8f9fa;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.email-sent-section .card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.email-sent-section h2 {
+    color: #00008B;
+    font-weight: bold;
+}
+
+.email-sent-section p {
+    color: #333;
+    font-size: 1rem;
+}
+
+.email-sent-section .btn-email-sent {
+    background-color: #00008B;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: white;
+}
+
+.email-sent-section .btn-email-sent:hover {
+    background-color: #000066;
+    color: white;
+}
