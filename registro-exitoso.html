@@ -1,33 +1,3 @@
-<?php
-// Iniciar sesión
-session_start();
-
-// Verificar si el usuario viene de un registro exitoso
-if (!isset($_SESSION['registered_email'])) {
-    header("Location: registrarse.php");
-    exit();
-}
-
-// Incluir conexión a la base de datos
-require_once 'conexion.php';
-
-// Obtener el email de la sesión
-$email = $_SESSION['registered_email'];
-
-// Consultar el nombre del usuario
-try {
-    $stmt = $pdo->prepare("SELECT nombre FROM users WHERE email = ?");
-    $stmt->execute([$email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    $nombre = $user ? htmlspecialchars($user['nombre']) : 'Usuario';
-} catch (PDOException $e) {
-    $nombre = 'Usuario'; // Fallback en caso de error
-}
-
-// Limpiar la sesión
-unset($_SESSION['registered_email']);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
