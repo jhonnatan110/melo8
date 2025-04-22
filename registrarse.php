@@ -1,0 +1,262 @@
+<?php
+require_once 'conexion.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre = trim($_POST['nombre']);
+    $identificacion = trim($_POST['identificacion']);
+    $email = trim($_POST['email']);
+    $confirm_email = trim($_POST['confirm-email']);
+    $fecha_nacimiento = $_POST['fecha-nacimiento'];
+    $celular = trim($_POST['celular']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm-password'];
+    $ciudad = trim($_POST['ciudad']);
+    $direccion = trim($_POST['direccion']);
+    $localidad = trim($_POST['localidad']);
+    $complemento = trim($_POST['complemento'] ?? '');
+
+    $errors = [];
+
+    if (empty($nombre) || empty($identificacion) || empty($email) || empty($fecha_nacimiento) || 
+        empty($celular) || empty($password) || empty($ciudad) || empty($direccion) || empty($localidad)) {
+        $errors[] = "Todos los campos obligatorios deben estar completos.";
+    }
+
+    if ($email !== $confirm_email) {
+        $errors[] = "Los correos electrónicos no coinciden.";
+    }
+
+    if ($password !== $confirm_password) {
+        $errors[] = "Las contraseñas no coinciden.";
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "El correo electrónico no es válido.";
+    }
+
+    if (strlen($password) < 8) {
+        $errors[] = "La contraseña debe tener al menos 8 caracteres.";
+    }
+    try {
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = ? OR identificacion = ?");
+        $stmt->execute([$email, $identificacion]);
+        if ($stmt->fetchColumn() > 0) {
+            $errors[] = "El correo electrónico o número de identificación ya está registrado.";
+        }
+    } catch (PDOException $e) {
+        $errors[] = "Error al verificar datos: " . $e->getMessage();
+    }
+
+    if (empty($errors)) {
+        try {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare("
+                INSERT INTO users (nombre, identificacion, email, fecha_nacimiento, celular, password, ciudad, direccion, localidad, complemento, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+            ");
+            $stmt->execute([
+                $nombre,
+                $identificacion,
+                $email,
+                $fecha_nacimiento,
+                $celular,
+                $hashed_password,
+                $ciudad,
+                $direccion,
+                $localidad,
+                $complemento
+            ]);
+
+            header("Location: registro-exitoso.html");
+            exit();
+        } catch (PDOException $e) {
+            $errors[] = "Error al registrar: " . $e->getMessage();
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <title>Registrarse - Jabones DR</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="imagenes/logo.jpg" style="width: 100px;" alt="Logo Jabones DR">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mis Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca de Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+
+                <nav class="navbar">
+                    <form class="container-fluid justify-content-start">
+                        <button class="btn btn-outline-custom me-2" type="button">Iniciar Sesión</button>
+                        <button class="btn btn-outline-custom me-2" type="button">Registrarse</button>
+                    </form>
+                </nav>  
+
+                <ul class="nav-item">
+                    <a class="nav-link" href="carro de compras.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                        </svg>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="register-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="card shadow-lg border-0 rounded">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Registrarse</h2>
+                            <form action="registrarse.php" method="post">
+                                <h4 class="mb-3">Datos Personales</h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nombre" class="form-label">Nombre y Apellido</label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre y apellido" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="identificacion" class="form-label">Número Identificación</label>
+                                        <input type="text" class="form-control" id="identificacion" placeholder="Ingresa tu número de identificación" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">E-mail</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="confirm-email" class="form-label">Confirmar E-mail</label>
+                                        <input type="email" class="form-control" id="confirm-email" placeholder="Confirma tu correo" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" class="form-control" id="fecha-nacimiento" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="password" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="celular" class="form-label">+57 | Número Celular</label>
+                                        <input type="tel" class="form-control" id="celular" placeholder="Ingresa tu número celular" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="confirm-password" class="form-label">Confirmar Contraseña</label>
+                                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirma tu contraseña" required>
+                                    </div>
+                                </div>
+
+                                <h4 class="mb-3 mt-4">Dirección</h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="ciudad" class="form-label">Ciudad</label>
+                                        <input type="text" class="form-control" id="ciudad" placeholder="Ingresa tu ciudad" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="direccion" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="direccion" placeholder="Ingresa tu dirección" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="localidad" class="form-label">Localidad</label>
+                                        <input type="text" class="form-control" id="localidad" placeholder="Ingresa tu localidad" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="complemento" class="form-label">Complemento (Conjunto, Torre, Apto, etc.)</label>
+                                        <input type="text" class="form-control" id="complemento" placeholder="Ingresa complemento (opcional)">
+                                    </div>
+                                </div>
+
+
+                                <div class="d-grid mt-4">
+                                    <a href="registro-exitoso.html" class="btn btn-primary btn-register">Finalizar Registro</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-9 m-auto text-center">
+                    <h1>Te enviamos las mejores ofertas</h1>
+                    <input type="text" class="px-3" placeholder="Ingresa tu correo">
+                    <button class="btn2">Enviar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3 py-3">
+                            <h5 class="pb-3">Políticas</h5>
+                            <p>Privacidad</p>
+                            <p>Cookies</p>
+                            <p>Legales</p>
+                        </div>
+                        <div class="col-lg-3 py-3">
+                            <h5 class="pb-3">Entregas</h5>
+                            <p>Puntuales</p>
+                            <p>Contraentrega</p>
+                            <p>En tienda</p>
+                        </div>
+                        <div class="col-lg-3 py-3">
+                            <h5 class="pb-3">Ubicación</h5>
+                            <p>Bosa Brasil</p>
+                            <p>88c40 Cl. 51b sur</p>
+                        </div>
+                        <div class="col-lg-3 py-3">
+                            <h5 class="pb-3">Redes Sociales</h5>
+                            <img src="imagenes/red1.png" style="width: 50px;" alt="Facebook">
+                            <img src="imagenes/red2.png" style="width: 50px;" alt="Instagram">
+                            <img src="imagenes/red3.png" style="width: 50px;" alt="Twitter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">Copyright @ 2025</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
