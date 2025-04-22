@@ -130,3 +130,118 @@ box-shadow: 0 0 10px #00008B;
 .contact p{
     margin: 0;
 }
+
+.products-preview{
+    position: fixed;
+    top: 0; left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.products-preview .preview{
+    display: none;
+    padding: 1.5rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin: 2rem;
+    width: 40rem;
+    max-width: 90%;
+}
+
+.products-preview .preview.active{
+    display: inline-block;
+}
+
+.products-preview .preview img{
+    height: 18rem;
+}
+
+.products-preview .preview .fa-times{
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    cursor: pointer;
+    color: #444;
+    font-size: 4rem;
+    transition: transform 0.3s ease;
+}
+
+.products-preview .preview .fa-times:hover{
+    transform: rotate(90deg);
+}
+
+.products-preview .preview h3{
+    color: #444;
+    padding: .5rem 0;
+    font-size: 2rem;
+}
+
+.products-preview .preview .stars{
+    padding: 1rem 0;
+    font-size: 1.4rem;
+}
+
+.products-preview .preview .stars i{
+    color: yellow;
+}
+
+.products-preview .preview .stars span{
+    color: #999;
+}
+
+.products-preview .preview p{
+    line-height: 1.5;
+    padding: 1rem 0;
+    font-size: 1.4rem;
+    color: gray;
+}
+
+.products-preview .preview .buttons3 {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.products-preview .preview .buttons3 a {
+    flex: 1 1 12rem;
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: #f9f9f9;
+}
+
+.products-preview .preview .buttons3 a:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.products-preview .preview .buttons3 a.cart {
+    background-color: #00008B;
+    color: #fff;
+    border: 1px solid #00008B;
+}
+
+.products-preview .preview .buttons3 a.cart:hover {
+    background-color: #00008B;
+}
+
+.products-preview .preview .buttons3 a.btn {
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+}
+
+.products-preview .preview .buttons3 a.btn:hover {
+    background-color: #2980b9;
+}
