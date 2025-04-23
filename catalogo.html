@@ -46,10 +46,24 @@
                 </form>
             </nav>            
 
-            <span class="navbar-text ms-auto">
+            <span class="navbar-text ms-auto position-relative">
+                <img src="img/carrocompras.png" class="carrito-boton" style="width: 40px;" alt="carrocompras">
+                <span id="contador-carrito" class="contador-carrito">0</span>
+              </span>
+              
 
-              <img src="img/carrocompras.png" class="carrito-boton" style="width: 40px;" alt="carrocompras">
-            </span>
+
+            <div id="carrito" class="carrito-container" style="display: none;">
+                <h2>Carrito de Compras</h2>
+                <ul id="carrito-lista"></ul>
+                <p id="carrito-total">Total: $0</p>
+                <button id="vaciar-carrito" class="btn-vaciar">Vaciar Carrito</button>
+                <button id="pagar-carrito" class="btn-pagar">Ir a Pagar</button>
+
+              </div>
+              
+              <div id="alerta-contenedor" class="alerta-contenedor"></div>
+            
         </div>
         </div>
     </nav>
