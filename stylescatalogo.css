@@ -245,3 +245,73 @@ box-shadow: 0 0 10px #00008B;
 .products-preview .preview .buttons3 a.btn:hover {
     background-color: #2980b9;
 }
+
+.carrito-container {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    border: 2px solid #00008B;
+    padding: 20px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  
+  .alerta-contenedor {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+  }
+  
+  .alerta {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    animation: aparecer 0.5s ease, desaparecer 0.5s ease 2.5s forwards;
+    font-weight: bold;
+  }
+  
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes desaparecer {
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+
+  
+  .contador-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-pagar {
+    margin-top: 10px;
+    background-color: green;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-pagar:hover {
+    background-color: darkgreen;
+}
