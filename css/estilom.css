@@ -467,7 +467,7 @@ button.botontwo{
 }
 
 .btn-vaciar{
-    background-color: warning;
+    background-color: red;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -477,4 +477,4 @@ button.botontwo{
 
 .btn-vaciar:hover{
     background-color: white;
-    color: warning;
+    color: red;
