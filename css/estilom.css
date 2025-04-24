@@ -33,9 +33,9 @@ body{
 }
 
 button.btn-btn-outline-custom {
-    color: red;
+    color: #00008B;
     border-color: 2px solid #00008B;
-    background-color: black;
+    background-color: white;
 }
 button.btn-outline-custom:hover {
     background-color: #00008B;
@@ -274,22 +274,29 @@ section.containerthree{
     font-family: Merriweather;
 }
 
-.botontwo{
+button.botontwo{
     position: relative;
     top: -40px; /* Ajusta el valor negativo para subir */
     display: block;
-    margin: 0 auto; /* Centrado horizontalmente */
+    
     padding: 10px 20px;
     background-color: #00008B;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100px;
+    height: 40px;
+    width: 200px;
     border: 1px solid transparent;
     line-height: 20px; /* Hace que el texto quede alineado verticalmente */
     text-align: center;
     font-size: 14px;
+    text-decoration: none;
+    font-family: Merriweather;
+    margin-top: 70px; ;
+
+
+    
 }
 
 .botontwo:hover {
@@ -313,5 +320,179 @@ section.containerthree{
 }
     
     
+.containerfour{
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+    justify-content: center;
+    margin-right: 0px; 
+    font-family: Merriweather;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 500px;
     
+}
+
+.info{
+    font-family: Merriweather;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.p1{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.p2{
+    font-size: 16px;
+    margin-top: -10px;
+}
+
+.p3{
+    font-size: 16px;
+    margin-top: -10px;
+}
+
+.p4{
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.p5{
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.p6{
+    font-size: 15px;
+    margin-top: 20px; 
+}
+
+.quantity-selector {
+    display: inline-flex;
+    border: 1px solid #ccc;
+    font-family: Merriweather;
+  }
+
+.quantity-selector button {
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+.quantity-selector span {
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+
+.btn1.mt-3{
+    background-color: #00008B;
+    color: white;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    border-color: #00008B;
+}
+
+.americanexpress{
+    width: 70px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.mastercard{
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
     
+}
+
+.debitomastercard{
+    width: 100px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.nequi{
+    width: 100px;
+    height: 60px;
+    border-radius: 5px;
+    
+}
+
+.visa{
+    width: 80px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.carrito-container {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    border: 2px solid #00008B;
+    padding: 20px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .alerta-contenedor {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+  }
+  
+  .alerta {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    animation: aparecer 0.5s ease, desaparecer 0.5s ease 2.5s forwards;
+    font-weight: bold;
+  }
+  
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes desaparecer {
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+
+  #carrito {
+    display: none; /* Se debe mostrar cuando se haga clic en el botón del carrito */
+    font-family: Merriweather;
+
+}
+
+#vaciar-carrito{
+    background-color: #00008B;
+    color: white;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    border-color: #00008B;
+    font-family: Merriweather;
+
+}
+
+#vaciar-carrito:hover{
+    background-color: white;
+    color: #00008B;
+    border-color: #00008B;
+}
