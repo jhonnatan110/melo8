@@ -315,3 +315,16 @@ box-shadow: 0 0 10px #00008B;
 .btn-pagar:hover {
     background-color: darkgreen;
 }
+
+.btn-vaciar{
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+
+.btn-vaciar:hover{
+    background-color: white;
+    color: red;
