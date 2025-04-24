@@ -24,10 +24,7 @@
     background-color:rgb(241, 229, 229);
     color: rgb(0, 0, 0);
     }
-    .carrito-boton{
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-    }
+    
     body {
     background-color: #ffffff;
     }
