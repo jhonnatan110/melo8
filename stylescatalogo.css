@@ -219,7 +219,6 @@ box-shadow: 0 0 10px #00008B;
     transition: all 0.3s ease;
     text-decoration: none;
     background-color: #00008B;
-    transition: all 0.3s ease
 }
 
 .products-preview .preview .buttons3 a:hover {
@@ -240,7 +239,7 @@ box-shadow: 0 0 10px #00008B;
 
 .products-preview .preview .buttons3 a.btn {
     background-color: #3498db;
-    color: #fff;
+    color: white;
     border: 1px solid #3498db;
 }
 
