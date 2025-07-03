@@ -239,13 +239,25 @@ box-shadow: 0 0 10px #00008B;
 
 .products-preview .preview .buttons3 a.btn {
     background-color: #3498db;
-    color: white;
+    color: #fff;
     border: 1px solid #3498db;
 }
 
 .products-preview .preview .buttons3 a.btn:hover {
     background-color: #2980b9;
 }
+
+.products-preview .preview .buttons3 a.buy {
+    background-color: #00008B;
+    color: #fff;
+    border: 1px solid #00008B;
+}
+
+.products-preview .preview .buttons3 a.buy:hover {
+    background-color: #00008B;
+    transform: scale(1.02);
+}
+
 
 .carrito-container {
     position: absolute;
