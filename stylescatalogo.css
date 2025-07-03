@@ -230,10 +230,12 @@ box-shadow: 0 0 10px #00008B;
     background-color: #00008B;
     color: #fff;
     border: 1px solid #00008B;
+    transition: all 0.3s ease
 }
 
 .products-preview .preview .buttons3 a.cart:hover {
     background-color: #00008B;
+    transform: scale(1.02)
 }
 
 .products-preview .preview .buttons3 a.btn {
