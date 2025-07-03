@@ -240,10 +240,12 @@ box-shadow: 0 0 10px #00008B;
     background-color: #3498db;
     color: #fff;
     border: 1px solid #3498db;
+    transition: all 0.3s ease
 }
 
 .products-preview .preview .buttons3 a.btn:hover {
     background-color: #2980b9;
+    transform: scale (1.02)
 }
 
 .carrito-container {
