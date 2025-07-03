@@ -60,11 +60,12 @@
     color: white;
     font-weight: 700;
     border-radius: 60px;
+    transition: all 0.3s ease
 }
 
 .btn1:hover{
     background-color: #00008B;
-    transition: 0.5s;
+    transform: scale(1.02);
 }
 
 h1{
@@ -257,7 +258,6 @@ box-shadow: 0 0 10px #00008B;
     background-color: #00008B;
     transform: scale(1.02);
 }
-
 
 .carrito-container {
     position: absolute;
